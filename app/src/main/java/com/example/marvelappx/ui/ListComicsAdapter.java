@@ -10,14 +10,15 @@ import android.widget.TextView;
 
 import com.example.marvelappx.R;
 import com.example.marvelappx.data.model.Comic;
+import com.example.marvelappx.data.network.response.ComicResponse;
 
 import java.util.List;
 
 public class ListComicsAdapter extends RecyclerView.Adapter<ListComicsAdapter.ListaComicsViewHolder>{
 
-    private List<Comic> comics;
+    private List<ComicResponse> comics;
 
-    public ListComicsAdapter(List<Comic> comics) {
+    public ListComicsAdapter(List<ComicResponse> comics) {
         this.comics = comics;
     }
 
@@ -30,7 +31,7 @@ public class ListComicsAdapter extends RecyclerView.Adapter<ListComicsAdapter.Li
 
     @Override
     public void onBindViewHolder(@NonNull ListaComicsViewHolder holder, int position) {
-        holder.textTituloComic.setText(comics.get(position).getTitle());
+        holder.textTituloComic.setText(comics.get(position).getResultado());
     }
 
     @Override

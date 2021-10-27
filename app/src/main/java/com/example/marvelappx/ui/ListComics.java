@@ -5,36 +5,51 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.Window;
 
 import com.example.marvelappx.R;
 import com.example.marvelappx.data.model.Comic;
+import com.example.marvelappx.data.model.ComicData;
+import com.example.marvelappx.data.network.ApiService;
+import com.example.marvelappx.data.network.MarvelService;
+import com.example.marvelappx.data.network.response.ComicResult;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class ListComics extends AppCompatActivity {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
+public class ListComics extends AppCompatActivity {
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
-        RecyclerView recyclerView = findViewById(R.id.recycler_comics);
+        recyclerView = findViewById(R.id.recycler_comics);
 
-        RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(new ListComicsAdapter(listaComic()));
+        ApiService.getINSTANCE().getAllComics
+                ("ts=1&apikey=87eae2cc29e0e5c27e1978b9b1d484f5&hash=fddd12b1cc463430b1ef5e4853f20b8a").enqueue
+                (new Callback<ComicResult>() {
+                    @Override
+                    public void onResponse(Call<ComicResult> call, Response<ComicResult> response) {
+                        if(response.isSuccessful()){
+                            RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(ListComics.this);
+                            recyclerView.setLayoutManager(linearLayoutManager);
+                            recyclerView.setAdapter(new ListComicsAdapter(response.body().getDados()));
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ComicResult> call, Throwable t) {
+
+                    }
+                });
+
+
     }
-        private List<Comic> listaComic(){
-           return Arrays.asList(
 
-                    new Comic(1, "hulk", "verde", "jpg", "321"),
-            new Comic(2, "spider", "red", "jpg", "100"),
-            new Comic(3, "wolve", "amarelo", "jpg", "444"),
-                   new Comic(4, "noturno", "azul", "jpg", "454")
-
-
-            );
-        }
     }
