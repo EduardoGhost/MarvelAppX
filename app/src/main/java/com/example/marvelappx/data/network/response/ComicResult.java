@@ -8,15 +8,17 @@ import java.util.List;
 public class ComicResult {
 
     @SerializedName("data")
-    @Expose
-    private final List<ComicResponse> dados;
+    private ComicResponse dados;
 
 
-    public ComicResult(List<ComicResponse> dados) {
+
+    public ComicResult(ComicResponse dados) {
         this.dados = dados;
     }
 
-    public List<ComicResponse> getDados() {
+
+
+    public ComicResponse getDados() {
         return dados;
     }
 }

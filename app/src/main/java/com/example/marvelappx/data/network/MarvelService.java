@@ -1,7 +1,5 @@
 package com.example.marvelappx.data.network;
 
-import com.example.marvelappx.data.model.ComicData;
-import com.example.marvelappx.data.network.response.ComicResponse;
 import com.example.marvelappx.data.network.response.ComicResult;
 
 import retrofit2.Call;

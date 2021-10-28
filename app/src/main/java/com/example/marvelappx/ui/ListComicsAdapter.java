@@ -12,14 +12,15 @@ import com.example.marvelappx.R;
 import com.example.marvelappx.data.model.Comic;
 import com.example.marvelappx.data.network.response.ComicResponse;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListComicsAdapter extends RecyclerView.Adapter<ListComicsAdapter.ListaComicsViewHolder>{
 
-    private List<ComicResponse> comics;
+    private List<Comic> comics;
 
-    public ListComicsAdapter(List<ComicResponse> comics) {
-        this.comics = comics;
+    public ListComicsAdapter(){
+        comics = new ArrayList<>();
     }
 
     @NonNull
@@ -31,7 +32,7 @@ public class ListComicsAdapter extends RecyclerView.Adapter<ListComicsAdapter.Li
 
     @Override
     public void onBindViewHolder(@NonNull ListaComicsViewHolder holder, int position) {
-        holder.textTituloComic.setText(comics.get(position).getResultado());
+        holder.textTituloComic.setText(comics.get(position).getTitle());
     }
 
     @Override
@@ -50,5 +51,14 @@ public class ListComicsAdapter extends RecyclerView.Adapter<ListComicsAdapter.Li
 
 
         }
+
+
+    }public void setComics(List<Comic> comics){
+        this.comics = comics;
+        notifyDataSetChanged();
     }
+
+
+
+
 }
