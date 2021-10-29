@@ -16,13 +16,13 @@ public class Comic implements Serializable {
     @SerializedName("prices")
     private List<Price> prices;
 
+
     public Comic(String title, String description, String thumbnail, List<Price> prices) {
         this.title = title;
         this.description = description;
         this.thumbnail = thumbnail;
         this.prices = prices;
     }
-
 
     public String getTitle() {
         return title;

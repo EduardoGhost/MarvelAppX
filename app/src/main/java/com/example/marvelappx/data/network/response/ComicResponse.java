@@ -10,14 +10,14 @@ import java.util.List;
 
 public class ComicResponse {
 
-    @SerializedName("results")
-    private List<Comic> resultados;
+    @SerializedName("data")
+    private ComicResponse data;
 
-    public ComicResponse(List<Comic> resultados) {
-        this.resultados = resultados;
+    public ComicResponse(ComicResponse data) {
+        this.data = data;
     }
 
-    public List<Comic> getResultado() {
-        return resultados;
+    public ComicResponse getData() {
+        return data;
     }
 }

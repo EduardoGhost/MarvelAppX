@@ -31,8 +31,9 @@ public class ApiService {
                     .build();
 
             Retrofit retrofit = new Retrofit.Builder()
+                    .client(okHttpClient)
                     .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
             INSTANCE = retrofit.create(MarvelService.class);
         }

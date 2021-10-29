@@ -9,5 +9,7 @@ import retrofit2.http.Query;
 public interface MarvelService {
 
     @GET("comics")
-    Call<ComicResult> getAllComics(@Query("key")String chaveAPI);
+    Call<ComicResult> getAllComics( @Query("ts") String ts,
+                                    @Query("apikey") String apikey,
+                                    @Query("hash") String hash);
 }
