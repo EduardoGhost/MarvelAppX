@@ -66,5 +66,5 @@ public class ListComicsAdapter extends RecyclerView.Adapter<ListComicsAdapter.Li
         notifyDataSetChanged();
 
     }
-    
+
 }
