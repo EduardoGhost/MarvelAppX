@@ -6,6 +6,9 @@ import java.io.Serializable;
 
 //miniatura das imagens
 public class Image implements Serializable {
+
+    final String RESOLUTION = "/portrait_fantastic";
+
     @SerializedName("path")
     private String path;
 
@@ -19,12 +22,16 @@ public class Image implements Serializable {
 
     public String getPath() {
         return path;
+
     }
 
     public String getExtension() {
         return extension;
     }
 
+    public String getUrl() {
+        return getPath()+RESOLUTION+"."+getExtension();
+    }
 }
 
 

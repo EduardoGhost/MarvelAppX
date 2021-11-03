@@ -6,6 +6,7 @@ import com.example.marvelappx.data.model.Comic;
 import com.example.marvelappx.data.network.response.ComicDataWrapper;
 import com.example.marvelappx.data.network.ApiService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -29,7 +30,7 @@ public class ComicPresenter implements ContratoPresenter.ListaComicsPresenter{
                     @Override
                     public void onResponse(Call<ComicDataWrapper> call, Response<ComicDataWrapper> response) {
                         if(response.isSuccessful()){
-                            final List<Comic> listaComics = response.body().getData().getResults();
+                            final List<Comic> listaComics = filtro(response.body().getData().getResults());
                             //listComicsAdapter.setComics(listaComics);
                             Log.i("LISTA RECEBIDA", String.valueOf(listaComics));
                             view.exibirComics(listaComics);
@@ -49,6 +50,18 @@ public class ComicPresenter implements ContratoPresenter.ListaComicsPresenter{
     @Override
     public void destruirView() {
         this.view = null;
+    }
+
+    //caso o HQ nao tenha dados imagem
+    public static final String IMG_NOT_AVAILABLE = "image_not_available";
+    private List<Comic> filtro(List<Comic> comics){
+        List<Comic> filtroComics = new ArrayList<>();
+        for(Comic comic : comics){
+            if(!comic.getThumbnail().getUrl().contains(IMG_NOT_AVAILABLE)){
+                filtroComics.add(comic);
+
+            }
+        }return filtroComics;
     }
 }
 

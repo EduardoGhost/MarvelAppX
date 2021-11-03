@@ -2,6 +2,7 @@ package com.example.marvelappx.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -13,9 +14,11 @@ import com.example.marvelappx.data.model.Comic;
 import com.example.marvelappx.presenter.ContratoPresenter;
 import com.example.marvelappx.presenter.ComicPresenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListComics extends AppCompatActivity implements ContratoPresenter.ListaComicsView{
+
     private RecyclerView recyclerComics;
     private ListComicsAdapter listComicsAdapter;
     private ContratoPresenter.ListaComicsPresenter presenter;
@@ -38,11 +41,10 @@ public class ListComics extends AppCompatActivity implements ContratoPresenter.L
         recyclerComics = findViewById(R.id.recycler_comics);
 
         listComicsAdapter = new ListComicsAdapter();
-        //RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(ListComics.this);
-        RecyclerView.LayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
-
-            //recyclerComics.setLayoutManager(linearLayoutManager);
-        recyclerComics.setLayoutManager(gridLayoutManager);
+        RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(ListComics.this);
+        //RecyclerView.LayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
+            recyclerComics.setLayoutManager(linearLayoutManager);
+        //recyclerComics.setLayoutManager(gridLayoutManager);
         recyclerComics.setAdapter(listComicsAdapter);
 
         recyclerComics.setHasFixedSize(true);
@@ -63,5 +65,8 @@ public class ListComics extends AppCompatActivity implements ContratoPresenter.L
         super.onDestroy();
         presenter.destruirView();
     }
+
+
+
 
     }
