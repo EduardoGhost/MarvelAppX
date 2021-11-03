@@ -12,17 +12,20 @@ public class Comic implements Serializable {
     @SerializedName("title")
     @Expose
     public String title;
+
     @SerializedName("description")
     @Expose
     public String description;
+
     @SerializedName("thumbnail")
     @Expose
-    public String thumbnail;
+    public Image thumbnail;
+
     @SerializedName("prices")
     @Expose
     private List<Price> prices;
 
-    public Comic(String title, String description, String thumbnail, List<Price> prices) {
+    public Comic(String title, String description, Image thumbnail, List<Price> prices) {
         this.title = title;
         this.description = description;
         this.thumbnail = thumbnail;
@@ -37,7 +40,7 @@ public class Comic implements Serializable {
         return description;
     }
 
-    public String getThumbnail() {
+    public Image getThumbnail() {
         return thumbnail;
     }
 

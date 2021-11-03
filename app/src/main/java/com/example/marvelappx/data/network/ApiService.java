@@ -4,7 +4,6 @@ package com.example.marvelappx.data.network;
 
 import android.util.Log;
 
-import com.example.marvelappx.data.model.ComicDataWrapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -12,7 +11,6 @@ import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import timber.log.Timber;
@@ -20,7 +18,7 @@ import timber.log.Timber;
 public class ApiService {
 
     private static MarvelService INSTANCE;
-    private static final String BASE_URL = "https://gateway.marvel.com/v1/public/";
+    private static final String BASE_URL = "https://gateway.marvel.com";
 
     public static MarvelService getINSTANCE() {
         if (INSTANCE == null) {
@@ -47,9 +45,9 @@ public class ApiService {
             INSTANCE = retrofit.create(MarvelService.class);
 
 
-            Log.i("RETRO DEU CERTO", String.valueOf("CERTO"));
+            Log.i("RETROFIT DEU CERTO", String.valueOf("CERTO"));
         }else{
-            Log.e("RETRO DEU ERRADO", String.valueOf("ERROU"));
+            Log.e("RETROFIT DEU ERRADO", String.valueOf("ERROU"));
         }
         return INSTANCE;
 

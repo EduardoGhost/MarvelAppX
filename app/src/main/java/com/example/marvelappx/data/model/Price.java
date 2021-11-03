@@ -3,6 +3,7 @@ package com.example.marvelappx.data.model;
 
 import java.io.Serializable;
 
+//preços
 public class Price implements Serializable {
     private String type;
     private double price;
