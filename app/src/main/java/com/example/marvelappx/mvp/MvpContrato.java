@@ -1,10 +1,10 @@
-package com.example.marvelappx.presenter;
+package com.example.marvelappx.mvp;
 
 import com.example.marvelappx.data.model.Comic;
 
 import java.util.List;
 //interfaces do contrato
-public interface ContratoPresenter {
+public interface MvpContrato {
     interface ListaComicsView{
         void exibirComics(List<Comic> comics);
         void mostrarErro();

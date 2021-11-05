@@ -1,4 +1,4 @@
-package com.example.marvelappx.presenter;
+package com.example.marvelappx.mvp;
 
 import android.util.Log;
 
@@ -13,10 +13,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ComicPresenter implements ContratoPresenter.ListaComicsPresenter{
+public class MvpPresenter implements MvpContrato.ListaComicsPresenter{
 
-    private ContratoPresenter.ListaComicsView view;
-    public ComicPresenter(ContratoPresenter.ListaComicsView view){
+    private MvpContrato.ListaComicsView view;
+    public MvpPresenter(MvpContrato.ListaComicsView view){
         this.view = view;
     }
 

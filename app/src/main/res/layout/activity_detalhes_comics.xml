@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF0000"
+
+    tools:context=".ui.DetalhesComics">
+
+
+    <RelativeLayout
+        android:layout_width="421dp"
+        android:layout_height="457dp"
+        >
+
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_width="218dp"
+            android:layout_height="251dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:scaleType="fitXY" />
+
+
+        <TextView
+            android:id="@+id/text_Descricao2"
+            android:layout_width="412dp"
+            android:layout_height="164dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="14dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="293dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="0dp"
+            android:lines="2"
+            android:paddingTop="20dp"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            tools:text="Descrição" />
+
+        <TextView
+            android:id="@+id/text_comic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="67dp"
+            android:layout_marginBottom="170dp"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Titulo da Comic" />
+
+        <TextView
+            android:id="@+id/text_Precos_2"
+            android:layout_width="260dp"
+            android:layout_height="81dp"
+            android:layout_marginStart="153dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="119dp"
+            android:layout_marginEnd="-8dp"
+            android:layout_marginBottom="0dp"
+            android:layout_toRightOf="@id/image2"
+            android:textColor="@color/white"
+            tools:text="Preço" />
+
+    </RelativeLayout>
+</LinearLayout >
