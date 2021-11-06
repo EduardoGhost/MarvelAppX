@@ -13,8 +13,12 @@
         android:theme="@style/Theme.MarvelAppX"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.CheckoutActivity"
+            android:exported="true"/>
+
+        <activity
             android:name=".ui.DetalhesComics"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ui.ListComics"
             android:exported="true">

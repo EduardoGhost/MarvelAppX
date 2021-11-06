@@ -68,7 +68,7 @@ public class ListComics extends AppCompatActivity implements MvpContrato.ListaCo
     @Override
     public void itemComicClicado(Comic comic) {
         Intent intent = new Intent(getApplicationContext(), DetalhesComics.class);
-        intent.putExtra("key",  (Serializable) comic);
+        intent.putExtra("key", comic);
         startActivity(intent);
 
     }
