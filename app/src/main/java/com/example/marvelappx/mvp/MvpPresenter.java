@@ -36,7 +36,8 @@ public class MvpPresenter implements MvpContrato.ListaComicsPresenter{
                             view.exibirComics(listaComics);
                         }else{
                             Log.e("Errou", String.valueOf(""));
-                        }}
+                        }
+                    }
 
                     @Override
                     public void onFailure(Call<ComicDataWrapper> call, Throwable t) {
@@ -52,7 +53,8 @@ public class MvpPresenter implements MvpContrato.ListaComicsPresenter{
         this.view = null;
     }
 
-    //caso o HQ nao tenha dados imagem
+    //add filtro caso o HQ nao tenha dados imagem
+    //obs: adicionar filtro para titulo e preços
     public static final String IMG_NOT_AVAILABLE = "image_not_available";
     private List<Comic> filtro(List<Comic> comics){
         List<Comic> filtroComics = new ArrayList<>();

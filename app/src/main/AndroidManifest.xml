@@ -21,7 +21,11 @@
             android:exported="true" />
         <activity
             android:name=".ui.ListComics"
+            android:exported="true"/>
+
+        <activity android:name=".ui.SplashScreemActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
