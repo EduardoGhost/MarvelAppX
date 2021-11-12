@@ -52,7 +52,7 @@ public class DetalhesComics extends AppCompatActivity {
         TextView total = findViewById(R.id.text_total);
         buttonC = (Button) findViewById(R.id.buttonC);
 
-
+        //quantidade
         EditText editText = findViewById(R.id.edit);
         editText.setText("");
 

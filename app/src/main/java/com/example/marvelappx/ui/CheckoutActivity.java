@@ -52,8 +52,10 @@ public class CheckoutActivity extends AppCompatActivity {
 
     txtTotal.setText("Valor total: R$: " + String.valueOf(total));
 
+
     EditText editText = findViewById(R.id.edit_cupom);
     editText.setText("");
+
 
     btnConfirmarCompra = (Button) findViewById(R.id.btnConfirmarCompra);
     btnAplicarCopum = (Button) findViewById(R.id.btnAplicarCupom);
@@ -63,29 +65,37 @@ public class CheckoutActivity extends AppCompatActivity {
         public void onClick(View v) {
             String cupom = editText.getText().toString();
 
-            if(cupom.contains("comum")){
+            if(cupom.contains("comum") && comic.isRare() == false){
+                Intent intent = new Intent(getApplicationContext(), FinalActivity.class);
                 float desconto10 = total/100*(10);
-                float novoTotal = total-desconto10;
-                txtTotal.setText("Valor total: R$: " + String.valueOf(total));
+                float novoTotalComum = total-desconto10;
+                intent.putExtra("keyFinal1",  String.valueOf(novoTotalComum));
+                intent.putExtra("keyFinal2", (Serializable) comic);
+                startActivity(intent);
 
                 Toast.makeText(btnAplicarCopum.getContext(), "Cupom de 10% aplicado",
                         Toast.LENGTH_SHORT).show();
 
-            }else if(cupom.contains("raro")){
+            }else if(cupom.contains("raro") && comic.isRare() == true){
+                Intent intent = new Intent(getApplicationContext(), FinalActivity.class);
+                System.out.println("CUPOM RARO "+cupom);
                 float desconto25 = total/100*(25);
-                float raro = total-desconto25;
-                txtTotal.setText("Valor total: R$: " + String.valueOf(total));
+                float novoTotalRaro = total-desconto25;
+                intent.putExtra("keyFinal1",  String.valueOf(novoTotalRaro));
+                intent.putExtra("keyFinal2", (Serializable) comic);
+                startActivity(intent);
 
                 Toast.makeText(btnAplicarCopum.getContext(), "Cupom de 25% aplicado", Toast.LENGTH_SHORT).show();
 
             }else{
-               // Intent intent = new Intent(CheckoutActivity.this, SplashScreemActivity.class);
+                Intent intent = new Intent(getApplicationContext(), FinalActivity.class);
+                intent.putExtra("keyFinal1",  String.valueOf(total));
+                startActivity(intent);
+
                 Toast.makeText(btnAplicarCopum.getContext(), "Cupom invalido",
                         Toast.LENGTH_SHORT).show();
 
-                //startActivity(intent);
             }
-
 
         }
     });

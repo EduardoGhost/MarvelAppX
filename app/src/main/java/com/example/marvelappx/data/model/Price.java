@@ -20,6 +20,9 @@ public class Price implements Serializable {
     }
 
     public double getPrice() {
+        if(price == 0){
+            price = 9.99;
+        }
         return price;
     }
 

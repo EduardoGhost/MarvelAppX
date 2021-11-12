@@ -16,11 +16,12 @@ public class SplashScreemActivity extends AppCompatActivity {
         setContentView(R.layout.splash_screem);
 
         Handler handler = new Handler();
-        handler.postDelayed(this::mostrarListComics, 1000);
+        handler.postDelayed(this::mostrarListComics, 1);
     }
 
     private void mostrarListComics() {
         Intent intent = new Intent(getApplicationContext(), ListComics.class);
         startActivity(intent);
         finish();
-    }}
+    }
+}

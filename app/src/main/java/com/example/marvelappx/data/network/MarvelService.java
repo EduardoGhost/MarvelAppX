@@ -14,5 +14,7 @@ public interface MarvelService {
     Call<ComicDataWrapper> getAllComics
             (@Query("ts") String ts, //time stamp igual 1
              @Query("apikey") String apikey,
-             @Query("hash") String hash);
+             @Query("hash") String hash,
+             @Query("limit") String limit);
+
 }

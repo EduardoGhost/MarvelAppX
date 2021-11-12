@@ -2,6 +2,8 @@ package com.example.marvelappx.ui;
 
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +32,7 @@ public class ListComicsAdapter extends RecyclerView.Adapter<ListComicsAdapter.Li
         private TextView textPrice;
         private ImageView image;
         private Comic comic;
+        private TextView text_rare;
 
         public ListaComicsViewHolder(View itemView) {
             super(itemView);
@@ -38,6 +41,8 @@ public class ListComicsAdapter extends RecyclerView.Adapter<ListComicsAdapter.Li
             textDescription = itemView.findViewById(R.id.text_Descricao);
             textPrice = itemView.findViewById(R.id.text_Precos);
             image = itemView.findViewById(R.id.image);
+            text_rare = itemView.findViewById(R.id.text_rare);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -57,12 +62,16 @@ public class ListComicsAdapter extends RecyclerView.Adapter<ListComicsAdapter.Li
         textDescription.setText(comic.getDescription());
         textPrice.setText("Preço :" + String.valueOf(comic.getPrices().get(0).getPrice()));
 
+
         Picasso.get().load(comic.getThumbnail().getPath() + "." + //imagem .extensão
             comic.getThumbnail().getExtension())
             .placeholder((R.drawable.ic_launcher_background))
             .error(android.R.drawable.btn_dialog)
                 .into(image);
-}}
+        if(comic.isRare() == true){
+            text_rare.setText("Raro");
+
+}}}
 
     @Override
     public ListaComicsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

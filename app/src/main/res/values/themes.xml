@@ -14,4 +14,10 @@
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@android:color/white</item>
     </style>
+    <style name="Theme.MarvelAppX.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.MarvelAppX.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.MarvelAppX.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

@@ -58,24 +58,35 @@
 
         <TextView
             android:id="@+id/text_Precos"
-            android:layout_width="260dp"
-            android:layout_height="81dp"
+            android:layout_width="144dp"
+            android:layout_height="75dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="153dp"
-
-
-            android:layout_marginLeft="8dp"
-
-
-            android:layout_marginTop="119dp"
-            android:layout_marginEnd="-8dp"
-            android:layout_marginBottom="0dp"
+            android:layout_marginStart="157dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="122dp"
+            android:layout_marginEnd="102dp"
+            android:layout_marginBottom="3dp"
             android:layout_toRightOf="@+id/image"
             android:textColor="@color/white"
             tools:text="Preço" />
+
+        <TextView
+            android:id="@+id/text_rare"
+            android:layout_width="122dp"
+            android:layout_height="69dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="257dp"
+            android:layout_marginTop="114dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="17dp"
+            android:textSize="20dp"
+            android:textColor="@android:color/holo_orange_light" />
 
     </RelativeLayout>
     </androidx.cardview.widget.CardView>

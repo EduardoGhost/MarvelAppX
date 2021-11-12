@@ -27,7 +27,7 @@ public class Comic implements Serializable {
     @SerializedName("prices")
     private List<Price> prices;
 
-    private boolean rare;
+    private boolean rare = false;
 
 
     public String getTitle() {
@@ -54,12 +54,12 @@ public class Comic implements Serializable {
         this.rare = rare;
     }
 
-    public Comic(String title, String description, Image thumbnail, List<Price> prices) {
+    public Comic(String title, String description, Image thumbnail, List<Price> prices, boolean rare) {
         this.title = title;
         this.description = description;
         this.thumbnail = thumbnail;
         this.prices = prices;
-        this.rare = false;
+        this.rare = rare;
     }
 
 
