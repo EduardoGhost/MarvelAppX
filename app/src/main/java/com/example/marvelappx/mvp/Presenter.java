@@ -2,7 +2,11 @@ package com.example.marvelappx.mvp;
 
 import android.util.Log;
 
+import com.example.marvelappx.data.di.components.Componentes;
+//import com.example.marvelappx.data.di.components.DaggerComponentes;
+import com.example.marvelappx.data.di.components.DaggerComponentes;
 import com.example.marvelappx.data.model.Comic;
+import com.example.marvelappx.data.network.MarvelService;
 import com.example.marvelappx.data.network.response.ComicDataWrapper;
 import com.example.marvelappx.data.network.ApiService;
 
@@ -11,23 +15,33 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MvpPresenter implements MvpContrato.ListaComicsPresenter{
+public class Presenter implements Contrato.ListaComicsPresenter{
 
-    private MvpContrato.ListaComicsView view;
-    public MvpPresenter(MvpContrato.ListaComicsView view){
+    private Contrato.ListaComicsView view;
+
+    public Presenter(Contrato.ListaComicsView view){
         this.view = view;
     }
+
+    MarvelService marvelService;
+
 
     @Override
     public void obterComic(){
         Log.i("CHAMADO ONCREATE", "obter a Lista");
         //comunicação com a api
-        ApiService.getINSTANCE().getAllComics
-                ("1", "87eae2cc29e0e5c27e1978b9b1d484f5","fddd12b1cc463430b1ef5e4853f20b8a", "20")
+
+        Componentes componentes = DaggerComponentes.builder().build();
+        marvelService = componentes.marvelService();
+
+        marvelService.getAllComics
+                ("1", "87eae2cc29e0e5c27e1978b9b1d484f5","fddd12b1cc463430b1ef5e4853f20b8a", "30")
                 .enqueue(new Callback<ComicDataWrapper>() {
                     @Override
                     public void onResponse(Call<ComicDataWrapper> call, Response<ComicDataWrapper> response) {
@@ -37,12 +51,10 @@ public class MvpPresenter implements MvpContrato.ListaComicsPresenter{
                             List<Comic> newList = randomRare(listaComics);
                             //List<Comic> newList = comicRare(listaComics);
                             Collections.shuffle(newList);
-
-
                             //view.exibirComics(listaComics);
                             view.exibirComics(newList);
                         }else{
-                            Log.e("Errou", String.valueOf(""));
+                            Log.e("Errou", (""));
                         }
                     }
 

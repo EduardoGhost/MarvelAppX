@@ -11,17 +11,16 @@ import android.widget.Toast;
 
 import com.example.marvelappx.R;
 import com.example.marvelappx.data.model.Comic;
-import com.example.marvelappx.mvp.MvpContrato;
-import com.example.marvelappx.mvp.MvpPresenter;
+import com.example.marvelappx.mvp.Contrato;
+import com.example.marvelappx.mvp.Presenter;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class ListComics extends AppCompatActivity implements MvpContrato.ListaComicsView,
+public class ListComics extends AppCompatActivity implements Contrato.ListaComicsView,
         ListComicsAdapter.ItemComicClickListener {
 
     private ListComicsAdapter listComicsAdapter;
-    private MvpContrato.ListaComicsPresenter presenter;
+    private Contrato.ListaComicsPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,7 @@ public class ListComics extends AppCompatActivity implements MvpContrato.ListaCo
 
         configAdapter();
 
-        presenter = new MvpPresenter(this);
+        presenter = new Presenter(this);
         presenter.obterComic();
 
         }
@@ -58,9 +57,10 @@ public class ListComics extends AppCompatActivity implements MvpContrato.ListaCo
     @Override
     public void mostrarErro(){
         Toast.makeText(ListComics.this, "Não rodou!", Toast.LENGTH_SHORT).show();
+
     }
     @Override
-    protected void onDestroy(){ //necessário caso o vire a tela do smarthphone
+    protected void onDestroy(){
         super.onDestroy();
         presenter.destruirView();
     }

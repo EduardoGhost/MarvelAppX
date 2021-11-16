@@ -22,7 +22,6 @@ public class Image implements Serializable {
 
     public String getPath() {
         return path;
-
     }
 
     public String getExtension() {

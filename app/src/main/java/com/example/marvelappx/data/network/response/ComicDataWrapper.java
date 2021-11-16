@@ -1,9 +1,6 @@
 package com.example.marvelappx.data.network.response;
 
-
 import com.google.gson.annotations.SerializedName;
-
-
 
 public class ComicDataWrapper {
 

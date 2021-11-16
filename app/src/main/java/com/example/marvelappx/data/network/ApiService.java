@@ -1,7 +1,5 @@
 package com.example.marvelappx.data.network;
 
-
-
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -45,9 +43,9 @@ public class ApiService {
             INSTANCE = retrofit.create(MarvelService.class);
 
 
-            Log.i("RETROFIT DEU CERTO", String.valueOf("CERTO"));
+            Log.i("RETROFIT DEU CERTO", "CERTO");
         }else{
-            Log.e("RETROFIT DEU ERRADO", String.valueOf("ERROU"));
+            Log.e("RETROFIT DEU ERRADO", "ERROU");
         }
         return INSTANCE;
 

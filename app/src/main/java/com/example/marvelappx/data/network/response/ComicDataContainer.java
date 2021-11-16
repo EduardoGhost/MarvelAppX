@@ -1,6 +1,5 @@
 package com.example.marvelappx.data.network.response;
 
-
 import com.example.marvelappx.data.model.Comic;
 import com.google.gson.annotations.SerializedName;
 
@@ -13,7 +12,6 @@ public class ComicDataContainer {
 
     @SerializedName("results")
     private final List<Comic> results;
-
 
     public ComicDataContainer(List<Comic> results) {
 

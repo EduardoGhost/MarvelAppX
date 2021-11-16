@@ -21,14 +21,13 @@ import java.util.ArrayList;
 
 public class DetalhesComics extends AppCompatActivity {
 
-    private NumberPicker numberPicker;
+    //private NumberPicker numberPicker;
     private Button buttonC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes_comics);
-
 
         // Intent i = getIntent();
         Comic comic = (Comic) getIntent().getSerializableExtra("key");

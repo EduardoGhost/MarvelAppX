@@ -1,9 +1,7 @@
 package com.example.marvelappx.ui;
 
-
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +17,7 @@ import java.util.List;
 public class ListComicsAdapter extends RecyclerView.Adapter<ListComicsAdapter.ListaComicsViewHolder>{
 
     private List<Comic> comics;
+
     private static ItemComicClickListener itemComicClickListener;
 
     public ListComicsAdapter(ItemComicClickListener itemComicClickListener){
@@ -43,47 +42,43 @@ public class ListComicsAdapter extends RecyclerView.Adapter<ListComicsAdapter.Li
             image = itemView.findViewById(R.id.image);
             text_rare = itemView.findViewById(R.id.text_rare);
 
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if(itemComicClickListener != null){
                         itemComicClickListener.itemComicClicado(comic);
-
                     }
                 }
             });
-
     }
 
     public void bind(Comic comic){
             this.comic = comic;
         textTituloComic.setText(comic.getTitle());
         textDescription.setText(comic.getDescription());
-        textPrice.setText("Preço :" + String.valueOf(comic.getPrices().get(0).getPrice()));
-
+        textPrice.setText("Preço :" + (comic.getPrices().get(0).getPrice()));
 
         Picasso.get().load(comic.getThumbnail().getPath() + "." + //imagem .extensão
             comic.getThumbnail().getExtension())
             .placeholder((R.drawable.ic_launcher_background))
             .error(android.R.drawable.btn_dialog)
                 .into(image);
-        if(comic.isRare() == true){
+        if(comic.isRare()){
             text_rare.setText("Raro");
 
 }}}
 
     @Override
     public ListaComicsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_comic, parent, false);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_comic, parent, false);
         return new ListaComicsViewHolder(view);
     }
     @Override
     public void onBindViewHolder(ListaComicsViewHolder holder, int position) {
-
         holder.bind(comics.get(position));
-
     }
+
     @Override
     public int getItemCount() {
         //return comics.size();
@@ -99,5 +94,4 @@ public class ListComicsAdapter extends RecyclerView.Adapter<ListComicsAdapter.Li
     public interface ItemComicClickListener{
         void itemComicClicado(Comic comic);
     }
-
 }
