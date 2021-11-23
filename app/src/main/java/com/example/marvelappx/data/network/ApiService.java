@@ -13,6 +13,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import timber.log.Timber;
 
+/**classe inativa -- substituida por dagger2*/
+
 public class ApiService {
 
     private static MarvelService INSTANCE;
@@ -48,9 +50,5 @@ public class ApiService {
             Log.e("RETROFIT DEU ERRADO", "ERROU");
         }
         return INSTANCE;
-
-
     }
-
-
 }

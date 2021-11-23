@@ -1,7 +1,9 @@
 package com.example.marvelappx.ui;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,11 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.Observer;
+import io.reactivex.Observable;
+import io.reactivex.disposables.Disposable;
+
 
 public class ListComicsAdapter extends RecyclerView.Adapter<ListComicsAdapter.ListaComicsViewHolder>{
 
@@ -45,9 +52,33 @@ public class ListComicsAdapter extends RecyclerView.Adapter<ListComicsAdapter.Li
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(itemComicClickListener != null){
-                        itemComicClickListener.itemComicClicado(comic);
-                    }
+                    Observable<Comic> observavel = Observable.just(comic);
+                    Observer<Comic> observador = new Observer<Comic>() {
+                        @Override
+                        public void onSubscribe(@NonNull Disposable d) {
+
+                        }
+
+                        @Override
+                        public void onNext(@NonNull Comic comic) {
+                            itemComicClickListener.itemComicClicado(comic);
+                        }
+
+                        @Override
+                        public void onError(@NonNull Throwable e) {
+                            e.printStackTrace();
+                        Log.e("", String.valueOf("errou feio"));
+
+                        }
+
+                        @Override
+                        public void onComplete() {
+
+                        }
+                    };
+//                    if(itemComicClickListener != null){
+//
+//                    }
                 }
             });
     }

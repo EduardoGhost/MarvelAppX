@@ -1,19 +1,11 @@
 package com.example.marvelappx.data.di.module;
 
-
-import android.content.Context;
-
-import com.example.marvelappx.data.di.components.Componentes;
 import com.example.marvelappx.data.di.scope.PerActivity;
 import com.example.marvelappx.data.network.MarvelService;
-import com.example.marvelappx.data.network.response.ComicDataContainer;
-import com.example.marvelappx.data.network.response.ComicDataWrapper;
 
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Named;
-import javax.inject.Scope;
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -22,7 +14,6 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import timber.log.Timber;
-
 
 @Module(includes = ContextModule.class)
 public class ApplicationModule {
@@ -35,7 +26,6 @@ public class ApplicationModule {
         return GsonConverterFactory.create();
     }
 
-
     @Provides
     @Named("ok-2")
     HttpLoggingInterceptor httpLoggingInterceptor() {
@@ -44,8 +34,6 @@ public class ApplicationModule {
         return httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
     }
-
-
 
     @Provides
     @Named("ok-1")
@@ -57,7 +45,6 @@ public class ApplicationModule {
                 .build();
     }
 
-
     @Provides
     Retrofit provideRetrofit(@Named("ok-1") OkHttpClient client, GsonConverterFactory converterFactory) {
         return new Retrofit.Builder()
@@ -66,9 +53,6 @@ public class ApplicationModule {
                 .client(client)
                 .build();
     }
-
-
-
 
     @Provides
     public MarvelService marvelService(Retrofit retrofit){

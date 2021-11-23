@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.example.marvelappx.R;
@@ -35,7 +34,6 @@ public class ListComics extends AppCompatActivity implements Contrato.ListaComic
         }
 
         private void configAdapter(){
-        Log.i("CONFIG ADAPTER", "config adapter");
 
         RecyclerView recyclerComics = findViewById(R.id.recycler_comics);
 
