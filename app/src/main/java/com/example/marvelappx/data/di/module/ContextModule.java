@@ -1,6 +1,7 @@
 package com.example.marvelappx.data.di.module;
 
 import android.content.Context;
+import com.example.marvelappx.data.di.scope.ApplicationScope;
 
 import javax.inject.Named;
 
@@ -14,10 +15,12 @@ public class ContextModule {
     public ContextModule(Context context) {
         this.context = context;
     }
-
-    @Named("application_context")
     @Provides
-    public Context context(){
-        return context.getApplicationContext();
+    @ApplicationScope
+    @ApplicationContexto
+    public Context context() {
+        return context;
     }
+
+
 }

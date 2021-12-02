@@ -16,6 +16,8 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.Observer;
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
@@ -25,14 +27,15 @@ public class ListComicsAdapter extends RecyclerView.Adapter<ListComicsAdapter.Li
 
     private List<Comic> comics;
 
-    private static ItemComicClickListener itemComicClickListener;
+    private ItemComicClickListener itemComicClickListener;
 
+    @Inject
     public ListComicsAdapter(ItemComicClickListener itemComicClickListener){
         this.itemComicClickListener = itemComicClickListener;
         comics = new ArrayList<>();
     }
 
-    static class ListaComicsViewHolder extends RecyclerView.ViewHolder{
+    class ListaComicsViewHolder extends RecyclerView.ViewHolder{
         private TextView textTituloComic;
         private TextView textDescription;
         private TextView textPrice;
@@ -76,6 +79,7 @@ public class ListComicsAdapter extends RecyclerView.Adapter<ListComicsAdapter.Li
 
                         }
                     };
+                    observavel.subscribe(observador);
 //                    if(itemComicClickListener != null){
 //
 //                    }
