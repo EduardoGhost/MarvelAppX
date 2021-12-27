@@ -6,6 +6,10 @@ public class Price implements Serializable {
     private String type;
     private double price;
 
+    public Price(String type, double price) {
+        this.type = type;
+        this.price = price;
+    }
 
     public String getType() {
         return type;

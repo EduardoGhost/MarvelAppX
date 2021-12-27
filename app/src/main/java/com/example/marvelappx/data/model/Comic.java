@@ -27,6 +27,13 @@ public class Comic implements Serializable {
         this.prices = prices;
         this.rare = rare;
     }
+    public Comic(String title, String description, Image thumbnail, boolean rare) {
+        this.title = title;
+        this.description = description;
+        this.thumbnail = thumbnail;
+        this.rare = rare;
+    }
+
 
     public String getTitle() {
         return title;

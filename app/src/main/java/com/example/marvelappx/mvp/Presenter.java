@@ -67,12 +67,9 @@ public class Presenter implements Contrato.ListaComicsPresenter{
                     @Override
                     public void onComplete() {
 
-
                     }
                 });
-
         }
-
 
     @Override
     public void destruirView() {
@@ -98,7 +95,6 @@ public class Presenter implements Contrato.ListaComicsPresenter{
         int cont = 0;
         int x = comicRare.size();
         while (cont != x){
-
 
             if(comicRare.get(cont).isRare() == false) {
                 comicRare.get(cont).setRare(true);

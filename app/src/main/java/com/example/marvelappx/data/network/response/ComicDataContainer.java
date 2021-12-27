@@ -23,9 +23,4 @@ public class ComicDataContainer {
         return results;
     }
 
-//talves implementar o random 12% aqui
-
-
-
-
 }

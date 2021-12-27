@@ -53,8 +53,8 @@ public class CheckoutActivity extends AppCompatActivity {
     txtTotal.setText("Valor total: R$: " + String.valueOf(total));
 
 
-    EditText editText = findViewById(R.id.edit_cupom);
-    editText.setText("");
+        EditText editText = findViewById(R.id.edit_cupom);
+        editText.setText("");
 
 
     btnConfirmarCompra = (Button) findViewById(R.id.btnConfirmarCompra);

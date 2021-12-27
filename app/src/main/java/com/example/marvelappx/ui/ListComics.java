@@ -22,9 +22,10 @@ import com.example.marvelappx.mvp.Presenter;
 import java.util.List;
 import javax.inject.Inject;
 
+/** MyMain*/
+
 public class ListComics extends AppCompatActivity implements Contrato.ListaComicsView,
         ListComicsAdapter.ItemComicClickListener {
-
 
     ComicActivityComponent comicActivityComponent;
 
