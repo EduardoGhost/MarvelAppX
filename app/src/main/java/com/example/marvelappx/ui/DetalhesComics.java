@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.example.marvelappx.R;
@@ -16,13 +15,13 @@ import com.example.marvelappx.data.model.Comic;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 
 public class DetalhesComics extends AppCompatActivity {
 
     //private NumberPicker numberPicker;
     private Button buttonC;
+    private Button buttonVideo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +50,22 @@ public class DetalhesComics extends AppCompatActivity {
         TextView total = findViewById(R.id.text_total);
         buttonC = (Button) findViewById(R.id.buttonC);
 
+        buttonVideo = (Button) findViewById(R.id.buttonVideo);
+
         //quantidade
         EditText editText = findViewById(R.id.edit);
         editText.setText("");
+
+
+
+        buttonVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), VideoViewActivity.class);
+//                intent.putExtra("videoTela", VideoViewActivity.class);
+                startActivity(intent);
+            }
+        });
 
         buttonC.setOnClickListener(new View.OnClickListener() {
             @Override
