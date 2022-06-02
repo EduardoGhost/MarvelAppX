@@ -3,7 +3,6 @@ package com.example.marvelappx.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.marvelappx.R;
@@ -17,6 +16,7 @@ public class SplashScreemActivity extends AppCompatActivity {
 
         Handler handler = new Handler();
         handler.postDelayed(this::mostrarListComics, 1);
+
     }
 
     private void mostrarListComics() {

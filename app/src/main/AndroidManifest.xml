@@ -4,6 +4,7 @@
     package="com.example.marvelappx">
     <!-- Internet Permission -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <queries> <intent> <action android:name="com.google.android.youtube.api.service.START" /></intent></queries>
 
     <application
         android:name = ".data.di.Application.MyApplication"
@@ -28,7 +29,9 @@
             android:exported="true" />
         <activity
             android:name=".ui.VideoViewActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DialogWhenLarge"
+            />
         <activity
             android:name=".ui.SplashScreemActivity"
             android:exported="true">

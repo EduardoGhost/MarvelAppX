@@ -1,11 +1,14 @@
 package com.example.marvelappx.ui;
 
+import static androidx.constraintlayout.widget.ConstraintLayoutStates.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 import com.example.marvelappx.R;
 import com.example.marvelappx.data.di.Application.MyApplication;
@@ -26,6 +29,8 @@ import javax.inject.Inject;
 
 public class ListComics extends AppCompatActivity implements Contrato.ListaComicsView,
         ListComicsAdapter.ItemComicClickListener {
+
+    private static final String TAG = "ListComics";
 
     ComicActivityComponent comicActivityComponent;
 
@@ -84,6 +89,7 @@ public class ListComics extends AppCompatActivity implements Contrato.ListaComic
     @Override
     public void mostrarErro(){
         Toast.makeText(ListComics.this, "Não rodou!", Toast.LENGTH_SHORT).show();
+        Log.e(TAG, "Não rodou");
 
     }
     @Override

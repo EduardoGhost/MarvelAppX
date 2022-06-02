@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.VideoViewActivity">
 
-    <RelativeLayout
-        android:layout_width="421dp"
-        android:layout_height="545dp"
-        tools:ignore="MissingConstraints">
 
-        <VideoView
+        <com.google.android.youtube.player.YouTubePlayerView
             android:id="@+id/video_view"
-            android:layout_width="416dp"
-            android:layout_height="557dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="-17dp"
-            android:layout_marginBottom="-2dp"
-            android:text="VIDEOPLAY"
-            tools:layout_editor_absoluteY="-10dp" />
+            android:layout_centerInParent="true"
+            android:text="VIDEO" />
 
-    </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

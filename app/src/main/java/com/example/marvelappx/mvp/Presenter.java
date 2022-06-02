@@ -37,7 +37,7 @@ public class Presenter implements Contrato.ListaComicsPresenter{
         Log.i("CHAMADO ONCREATE", "obter a Lista");
                 Observable<ComicDataWrapper> observavel =
                         marvelService
-                        .getAllComics("1", "87eae2cc29e0e5c27e1978b9b1d484f5","fddd12b1cc463430b1ef5e4853f20b8a", "20");
+                        .getAllComics("1", "87eae2cc29e0e5c27e1978b9b1d484f5","fddd12b1cc463430b1ef5e4853f20b8a", "10", "collection");
                  observavel
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -52,7 +52,7 @@ public class Presenter implements Contrato.ListaComicsPresenter{
                         List<Comic> listaComics = filtro(comicDataWrapper.getData().getResults());
                         List<Comic> newList = randomRare(listaComics);
 //                            //List<Comic> newList = comicRare(listaComics);
-                        Collections.shuffle(newList);
+                        //Collections.shuffle(newList);
 //                            //view.exibirComics(listaComics);
                         mView.exibirComics(newList);
                     }
@@ -83,10 +83,11 @@ public class Presenter implements Contrato.ListaComicsPresenter{
         for(Comic comic : comics){
             if(!comic.getThumbnail().getUrl().contains(IMG_NOT_AVAILABLE)){
                 filtroComics.add(comic);
-
             }
         }return filtroComics;
     }
+
+
 
     public List<Comic> comicRare(List<Comic> comicRare){
 

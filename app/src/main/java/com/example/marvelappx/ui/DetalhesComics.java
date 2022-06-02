@@ -3,18 +3,25 @@ package com.example.marvelappx.ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.example.marvelappx.R;
 import com.example.marvelappx.data.model.Comic;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.util.List;
+import java.util.Random;
 
 
 public class DetalhesComics extends AppCompatActivity {
@@ -57,12 +64,13 @@ public class DetalhesComics extends AppCompatActivity {
         editText.setText("");
 
 
+        //url de videos
+     //   String [] arrayURL = {"https://www.youtube.com/watch?v=Jrpv1C0WHFI", "https://www.youtube.com/watch?v=2Lba2qhWBe8"};
 
         buttonVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), VideoViewActivity.class);
-//                intent.putExtra("videoTela", VideoViewActivity.class);
                 startActivity(intent);
             }
         });
