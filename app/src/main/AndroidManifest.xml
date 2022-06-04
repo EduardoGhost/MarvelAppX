@@ -33,6 +33,10 @@
             android:theme="@style/Theme.AppCompat.DialogWhenLarge"
             />
         <activity
+            android:name=".ui.PdfActivity"
+            android:exported="true"
+            />
+        <activity
             android:name=".ui.SplashScreemActivity"
             android:exported="true">
             <intent-filter>

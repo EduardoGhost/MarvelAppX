@@ -26,9 +26,9 @@ import java.util.Random;
 
 public class DetalhesComics extends AppCompatActivity {
 
-    //private NumberPicker numberPicker;
     private Button buttonC;
     private Button buttonVideo;
+    private Button buttonPDF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,13 +59,20 @@ public class DetalhesComics extends AppCompatActivity {
 
         buttonVideo = (Button) findViewById(R.id.buttonVideo);
 
+        buttonPDF = (Button)  findViewById(R.id.buttonPDF);
+
+
         //quantidade
         EditText editText = findViewById(R.id.edit);
         editText.setText("");
 
-
-        //url de videos
-     //   String [] arrayURL = {"https://www.youtube.com/watch?v=Jrpv1C0WHFI", "https://www.youtube.com/watch?v=2Lba2qhWBe8"};
+        buttonPDF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PdfActivity.class);
+                startActivity(intent);
+            }
+        });
 
         buttonVideo.setOnClickListener(new View.OnClickListener() {
             @Override

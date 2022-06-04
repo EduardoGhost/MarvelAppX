@@ -71,7 +71,6 @@ public class VideoViewActivity extends YouTubeBaseActivity {
                 for (int i = 0; i < arrayURL.length; i++) {
                     int j = random.nextInt(arrayURL.length);
                     String string = arrayURL[j];
-                    System.out.println("ZZZ " + string);
                     youTubePlayer.loadVideo(string);
                     youTubePlayer.play();
             }}
