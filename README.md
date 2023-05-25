@@ -8,4 +8,6 @@ RX Java,
 Retrofit,
 youtubePlayerApi,
 PDFview,
-[![Descrição da imagem](url_da_imagem)](https://github.com/EduardoGhost/MarvelAppX/blob/master/Screenshot_20230525_160828.png)
+
+
+[![Tela principal](url_da_imagem)](https://github.com/EduardoGhost/MarvelAppX/blob/master/Screenshot_20230525_160828.png)
